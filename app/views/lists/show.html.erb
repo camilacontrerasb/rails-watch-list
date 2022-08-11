@@ -1,2 +1,18 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<p style="color: green"><%= notice %></p>
+
+<p><%= link_to "Leave a bookmark", WRITE_path(@list) %></p>
+
+<p><strong>Bookmarks</strong></p>
+<ul class="list-group">
+  <% @list.bookmarks.each do |bookmark| %>
+    <li class="list-group-item"><%= bookmark.comment %></li>
+    <%= link_to 'Remove', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'You sure...? 🧐' } %>
+  <% end %>
+</ul>
+<br>
+
+<div>
+  <%= link_to "Back to lists", lists_path %>
+
+  <%= button_to "Destroy this list", @list, method: :delete %>
+</div>
