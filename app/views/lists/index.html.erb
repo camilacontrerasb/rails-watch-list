@@ -1,9 +1,21 @@
 <p style="color: green"><%= notice %></p>
-<h1>Lists</h1>
-<%= link_to 'Create a list', new_list_path %>
+<div class="text-center">
+  <h1>WatchLists</h1>
+</div>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="btn btn-flat">
+    <%= link_to 'Create a list', new_list_path %>
+  </div>
+  <ul>
+    <% @lists.each do |list| %>
+      <div class="text-center">
+        <%= link_to list_path(list), class:"text-decoration-none" do %>
+          <div class="card-category">
+            <%= list.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </ul>
+</div>

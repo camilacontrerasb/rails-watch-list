@@ -15,7 +15,6 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     # @list.lists = @lists
-
     if @list.save
       redirect_to lists_path(@lists), notice: "List was successfully created."
     else
