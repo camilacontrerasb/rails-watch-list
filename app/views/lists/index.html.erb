@@ -26,26 +26,31 @@
   </div>
 </nav>
 
-<%= cl_image_tag("jvqun3wjif3req4jyjn7", width: 400, height: 300, crop: :fill) %>
-
-
-<div class="text-center">
-  <h1>WatchLists</h1>
-</div>
-
-<div class="row">
-  <div class="btn btn-flat">
-    <%= link_to 'Create a list', new_list_path %>
-  </div>
-  <ul>
-    <% @lists.each do |list| %>
-      <div class="text-center">
-        <%= link_to list_path(list), class:"text-decoration-none" do %>
-          <div class="card-category">
-            <%= list.name %>
-          </div>
-        <% end %>
+<%# <%= cl_image_tag("jvqun3wjif3req4jyjn7", width: 400, height: 300, crop: :fill) %>
+<div class="fullpage">
+  <div class="container py-5">
+    <div class="homebanner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://ville.chateauguay.qc.ca/wp-content/uploads/2020/09/cinema.jpg');">
+      <div class="container">
+        <h1 class="text-center text-white">Watchlist</h1>
       </div>
-    <% end %>
-  </ul>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="btn btn-flat">
+          <%= link_to 'Create a list', new_list_path %>
+        </div>
+        <ul>
+          <% @lists.each do |list| %>
+            <div class="text-center">
+              <%= link_to list_path(list), class:"text-decoration-none" do %>
+                <div class="card-category">
+                  <%= list.name %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
