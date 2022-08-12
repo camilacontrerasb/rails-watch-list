@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   # get 'lists/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :lists, only: [:index, :show, :new, :create]
-
-  resources :movies do
+  resources :lists, only: [:index, :show, :new, :create] do
     resources :bookmarks, only: [:new, :create]
   end
 
