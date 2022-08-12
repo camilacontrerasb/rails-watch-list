@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<p><%= link_to "Leave a bookmark", WRITE_path(@list) %></p>
+  <div class="card-category card-large">
+    <h1><%= @list.name %></h1>
+  </div>
 
 <p><strong>Bookmarks</strong></p>
 <ul class="list-group">
@@ -13,6 +15,11 @@
 
 <div>
   <%= link_to "Back to lists", lists_path %>
+</div>
 
-  <%= button_to "Destroy this list", @list, method: :delete %>
+<div>
+  <button type="button" class="btn btn-flat">
+    add a movie
+  </button>
+  <%= link_to "delete this list", list_path(@list), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
 </div>
